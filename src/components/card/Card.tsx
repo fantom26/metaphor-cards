@@ -1,6 +1,7 @@
 import { CSSProperties, forwardRef } from "react";
 
 import { CARD_ANIMATION_DURATION_S } from "@/constants/animations";
+import { getCardStackPosition } from "@/utils/cardStackPosition";
 import { motion } from "framer-motion";
 
 import "./Card.css";
@@ -13,9 +14,7 @@ interface CardProps {
 
 const Card = forwardRef<HTMLDivElement, CardProps>(
   ({ card, index, isSelected = false }, ref) => {
-    const offsetX = index * 2;
-    const offsetY = index * 1.5;
-    const rotation = index * 0.3;
+    const { offsetX, offsetY, rotation } = getCardStackPosition(index);
 
     const cardStyle: CSSProperties = {
       zIndex: -index

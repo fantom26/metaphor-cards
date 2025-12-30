@@ -1,4 +1,5 @@
 import { Card } from "@/types/card";
+import { getCardStackPosition } from "@/utils/cardStackPosition";
 
 import "./OpenedCardsButton.css";
 
@@ -16,9 +17,7 @@ export default function OpenedCardsButton({
       <div className="opened-cards-stack">
         {Array.from({ length: Math.min(openedCards.length, 10) }).map(
           (_, index) => {
-            const offsetX = index * 0.8;
-            const offsetY = index * 0.6;
-            const rotation = index * 0.15;
+            const { offsetX, offsetY, rotation } = getCardStackPosition(-index);
 
             return (
               <div

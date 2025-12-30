@@ -55,7 +55,7 @@ export default function Home() {
       return;
     }
 
-    if (cardNumber < 1 || cardNumber > 10) {
+    if (cardNumber < 1 || cardNumber > INITIAL_CARDS.length) {
       alert("Please enter a valid card number between 1 and 10!");
       return;
     }
