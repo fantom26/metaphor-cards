@@ -7,19 +7,12 @@
   min-height: 100%;
 }
 
-.container {
-  margin: 0 auto;
-  padding: 0 15px;
-  width: 100%;
-  max-width: 120rem;
-}
-
 .main {
   flex-grow: 1;
   display: flex;
 }
 
-.main .container {
+.main-container {
   display: flex;
   flex-direction: column;
   justify-content: center;

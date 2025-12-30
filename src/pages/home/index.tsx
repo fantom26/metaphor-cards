@@ -1,6 +1,7 @@
 import { useCallback, useState } from "react";
 
 import CardStack from "@/components/card-stack/CardStack";
+import Container from "@/components/container/Container";
 import Controls from "@/components/controls/Controls";
 import FlippedCard from "@/components/flipped-card/FlippedCard";
 import Header from "@/components/header/Header";
@@ -77,21 +78,21 @@ export default function Home() {
     <div className="wrapper">
       <Header totalCards={INITIAL_CARDS.length} />
       <main className="main">
-        <div className="container">
+        <Container className="main-container">
           <div className="cards-wrapper">
             <CardStack cards={availableCards} selectedCardId={selectedCardId} />
             {selectedCard && <FlippedCard card={selectedCard} />}
           </div>
-        </div>
+        </Container>
       </main>
       <footer className="footer">
-        <div className="container">
+        <Container>
           <Controls
             onDrawRandom={handleDrawRandom}
             onSelectCard={handleSelectCard}
             isDisabled={availableCards.length === 0}
           />
-        </div>
+        </Container>
       </footer>
     </div>
   );

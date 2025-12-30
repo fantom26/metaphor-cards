@@ -1,3 +1,5 @@
+import Container from "@/components/container/Container";
+
 import "./Header.css";
 
 interface HeaderProps {
@@ -7,12 +9,12 @@ interface HeaderProps {
 export default function Header({ totalCards }: HeaderProps) {
   return (
     <header className="header">
-      <div className="container">
+      <Container>
         <h1 className="total">
           <span className="total-cards-label">Total card in the stack</span>
           <span className="total-cards">{totalCards}</span>
         </h1>
-      </div>
+      </Container>
     </header>
   );
 }
