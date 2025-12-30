@@ -23,7 +23,7 @@
   font-weight: 400;
   font-family: inherit;
   background: transparent;
-  border: 1px solid var(--color-border);
+  border: var(--button-border);
   border-radius: var(--border-radius-button);
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -92,4 +92,3 @@
   -webkit-appearance: none;
   margin: 0;
 }
-

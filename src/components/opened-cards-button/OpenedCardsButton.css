@@ -53,7 +53,7 @@
   inset: 0;
   backface-visibility: hidden;
   border-radius: var(--border-radius-card);
-  border: 1px solid var(--color-border);
+  border: var(--card-border);
   display: flex;
   justify-content: center;
   align-items: center;
