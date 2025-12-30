@@ -6,6 +6,7 @@ import Controls from "@/components/controls/Controls";
 import FlippedCard from "@/components/flipped-card/FlippedCard";
 import Header from "@/components/header/Header";
 import OpenedCardsButton from "@/components/opened-cards-button/OpenedCardsButton";
+import { CARD_ANIMATION_DURATION_MS } from "@/constants/animations";
 import { Card } from "@/types/card";
 
 import "./Home.css";
@@ -41,7 +42,7 @@ export default function Home() {
     setTimeout(() => {
       setSelectedCard(randomCard);
       setAvailableCards((prev) => prev.filter((c) => c.id !== randomCard.id));
-    }, 800);
+    }, CARD_ANIMATION_DURATION_MS);
   }, [availableCards]);
 
   const handleSelectCard = useCallback(
@@ -61,7 +62,7 @@ export default function Home() {
       setTimeout(() => {
         setSelectedCard(card);
         setAvailableCards((prev) => prev.filter((c) => c.id !== cardNumber));
-      }, 800);
+      }, CARD_ANIMATION_DURATION_MS);
     },
     [availableCards]
   );

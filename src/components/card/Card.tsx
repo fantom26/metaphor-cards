@@ -1,5 +1,6 @@
 import { CSSProperties, forwardRef } from "react";
 
+import { CARD_ANIMATION_DURATION_S } from "@/constants/animations";
 import { motion } from "framer-motion";
 
 import "./Card.css";
@@ -35,7 +36,7 @@ const Card = forwardRef<HTMLDivElement, CardProps>(
           opacity: isSelected ? 0 : 1
         }}
         transition={{
-          layout: { duration: 0.8, ease: "easeInOut" },
+          layout: { duration: CARD_ANIMATION_DURATION_S, ease: "easeInOut" },
           opacity: { duration: 0.2 }
         }}
       >

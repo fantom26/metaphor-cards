@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import RotateButton from "@/components/rotate-button/RotateButton";
+import { CARD_ANIMATION_DURATION_S } from "@/constants/animations";
 import { Card } from "@/types/card";
 import { motion } from "framer-motion";
 
@@ -30,7 +31,7 @@ export default function FlippedCard({ card }: FlippedCardProps) {
           y: 0
         }}
         transition={{
-          layout: { duration: 0.8, ease: "easeInOut" },
+          layout: { duration: CARD_ANIMATION_DURATION_S, ease: "easeInOut" },
           rotateZ: { duration: 0.6, ease: [0.4, 0, 0.2, 1] }
         }}
         style={{ transformStyle: "preserve-3d" }}
@@ -40,7 +41,10 @@ export default function FlippedCard({ card }: FlippedCardProps) {
           key={`card-inner-${card.id}`}
           initial={{ rotateY: 0 }}
           animate={{ rotateY: 180 }}
-          transition={{ duration: 0.8, ease: "easeInOut" }}
+          transition={{
+            duration: CARD_ANIMATION_DURATION_S,
+            ease: "easeInOut"
+          }}
           style={{ transformStyle: "preserve-3d" }}
         >
           <div className="card-front"></div>
