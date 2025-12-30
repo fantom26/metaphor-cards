@@ -18,7 +18,7 @@ export default function FlippedCard({ card }: FlippedCardProps) {
   };
 
   return (
-    <div className="flipped-card-container show">
+    <div className="flipped-card-container">
       <motion.div
         layoutId={`card-${card.id}`}
         className="card"
