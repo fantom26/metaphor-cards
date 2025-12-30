@@ -5,21 +5,16 @@ import "./Card.css";
 interface CardProps {
   card: { id: number; name: string };
   index: number;
-  totalCards: number;
 }
 
-export default function Card({
-  card,
-  index,
-  totalCards,
-}: CardProps) {
+export default function Card({ card, index }: CardProps) {
   const offsetX = index * 2;
   const offsetY = index * 1.5;
   const rotation = index * 0.3;
 
   const cardStyle: CSSProperties = {
-    zIndex: totalCards - index,
-    transform: `translateX(${offsetX}px) translateY(${offsetY}px) rotate(${rotation}deg)`,
+    zIndex: -index,
+    transform: `translateX(${offsetX}px) translateY(${offsetY}px) rotate(${rotation}deg)`
   };
 
   return (

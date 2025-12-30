@@ -11,12 +11,7 @@ export default function CardStack({ cards }: CardStackProps) {
   return (
     <div className="card-set">
       {cards.map((card, index) => (
-        <CardComponent
-          key={card.id}
-          card={card}
-          index={index}
-          totalCards={cards.length}
-        />
+        <CardComponent key={card.id} card={card} index={index} />
       ))}
     </div>
   );
