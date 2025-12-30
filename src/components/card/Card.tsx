@@ -1,27 +1,46 @@
 import { CSSProperties } from "react";
 
+import { motion } from "framer-motion";
+
 import "./Card.css";
 
 interface CardProps {
   card: { id: number; name: string };
   index: number;
+  isSelected?: boolean;
 }
 
-export default function Card({ card, index }: CardProps) {
+export default function Card({ card, index, isSelected = false }: CardProps) {
   const offsetX = index * 2;
   const offsetY = index * 1.5;
   const rotation = index * 0.3;
 
   const cardStyle: CSSProperties = {
-    zIndex: -index,
-    transform: `translateX(${offsetX}px) translateY(${offsetY}px) rotate(${rotation}deg)`
+    zIndex: -index
   };
 
   return (
-    <div className="card" style={cardStyle} data-card-id={card.id}>
+    <motion.div
+      layoutId={`card-${card.id}`}
+      className="card"
+      style={cardStyle}
+      data-card-id={card.id}
+      initial={false}
+      animate={{
+        x: offsetX,
+        y: offsetY,
+        rotate: rotation,
+        opacity: isSelected ? 0 : 1
+      }}
+      transition={{
+        layout: { duration: 0.8, ease: "easeInOut" },
+        opacity: { duration: 0.2 }
+      }}
+    >
       <div className="card-inner">
         <div className="card-front"></div>
+        <div className="card-back"></div>
       </div>
-    </div>
+    </motion.div>
   );
 }

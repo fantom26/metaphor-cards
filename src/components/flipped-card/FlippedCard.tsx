@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import RotateButton from "@/components/rotate-button/RotateButton";
 import { Card } from "@/types/card";
+import { motion } from "framer-motion";
 
 import "./FlippedCard.css";
 
@@ -16,17 +17,38 @@ export default function FlippedCard({ card }: FlippedCardProps) {
     setRotation((prev) => prev + 90);
   };
 
-  const cardStyle = {
-    transform: `rotateY(180deg) rotateZ(${rotation}deg)`
-  };
-
   return (
     <div className="flipped-card-container show">
-      <div className="flipped-card-inner" style={cardStyle}>
-        <div className="card-back">
-          <span className="card-number">{card.id}</span>
-        </div>
-      </div>
+      <motion.div
+        layoutId={`card-${card.id}`}
+        className="card"
+        initial={false}
+        animate={{
+          rotate: 0,
+          rotateZ: rotation,
+          x: 0,
+          y: 0
+        }}
+        transition={{
+          layout: { duration: 0.8, ease: "easeInOut" },
+          rotateZ: { duration: 0.6, ease: [0.4, 0, 0.2, 1] }
+        }}
+        style={{ transformStyle: "preserve-3d" }}
+      >
+        <motion.div
+          className="card-inner"
+          key={`card-inner-${card.id}`}
+          initial={{ rotateY: 0 }}
+          animate={{ rotateY: 180 }}
+          transition={{ duration: 0.8, ease: "easeInOut" }}
+          style={{ transformStyle: "preserve-3d" }}
+        >
+          <div className="card-front"></div>
+          <div className="card-back">
+            <span className="card-number">{card.id}</span>
+          </div>
+        </motion.div>
+      </motion.div>
       <RotateButton onRotate={handleRotate} />
     </div>
   );

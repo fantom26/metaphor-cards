@@ -71,8 +71,13 @@ export default function Home() {
       <main className="main">
         <Container className="main-container">
           <div className="cards-wrapper">
-            <CardStack cards={availableCards} />
-            {selectedCard && <FlippedCard card={selectedCard} />}
+            <CardStack
+              cards={availableCards}
+              selectedCardId={selectedCard?.id ?? null}
+            />
+            {selectedCard && (
+              <FlippedCard key={selectedCard.id} card={selectedCard} />
+            )}
           </div>
         </Container>
       </main>
