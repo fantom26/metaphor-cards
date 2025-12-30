@@ -27,7 +27,6 @@ export default function Home() {
     ...INITIAL_CARDS
   ]);
   const [selectedCard, setSelectedCard] = useState<Card | null>(null);
-  const [selectedCardId, setSelectedCardId] = useState<number | null>(null);
 
   const handleDrawRandom = useCallback(() => {
     if (availableCards.length === 0) {
@@ -38,13 +37,10 @@ export default function Home() {
     const randomIndex = Math.floor(Math.random() * availableCards.length);
     const randomCard = availableCards[randomIndex];
 
-    setSelectedCardId(randomCard.id);
-
     // Simulate animation delay before showing the flipped card
     setTimeout(() => {
       setSelectedCard(randomCard);
       setAvailableCards((prev) => prev.filter((c) => c.id !== randomCard.id));
-      setSelectedCardId(null);
     }, 800);
   }, [availableCards]);
 
@@ -62,13 +58,10 @@ export default function Home() {
         return;
       }
 
-      setSelectedCardId(cardNumber);
-
       // Simulate animation delay before showing the flipped card
       setTimeout(() => {
         setSelectedCard(card);
         setAvailableCards((prev) => prev.filter((c) => c.id !== cardNumber));
-        setSelectedCardId(null);
       }, 800);
     },
     [availableCards]
@@ -80,7 +73,10 @@ export default function Home() {
       <main className="main">
         <Container className="main-container">
           <div className="cards-wrapper">
-            <CardStack cards={availableCards} selectedCardId={selectedCardId} />
+            <CardStack
+              cards={availableCards}
+              selectedCardId={selectedCard?.id ?? null}
+            />
             {selectedCard && <FlippedCard card={selectedCard} />}
           </div>
         </Container>
