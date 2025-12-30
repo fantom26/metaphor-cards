@@ -1,4 +1,4 @@
-import { CSSProperties } from "react";
+import { CSSProperties, forwardRef } from "react";
 
 import { motion } from "framer-motion";
 
@@ -10,37 +10,44 @@ interface CardProps {
   isSelected?: boolean;
 }
 
-export default function Card({ card, index, isSelected = false }: CardProps) {
-  const offsetX = index * 2;
-  const offsetY = index * 1.5;
-  const rotation = index * 0.3;
+const Card = forwardRef<HTMLDivElement, CardProps>(
+  ({ card, index, isSelected = false }, ref) => {
+    const offsetX = index * 2;
+    const offsetY = index * 1.5;
+    const rotation = index * 0.3;
 
-  const cardStyle: CSSProperties = {
-    zIndex: -index
-  };
+    const cardStyle: CSSProperties = {
+      zIndex: -index
+    };
 
-  return (
-    <motion.div
-      layoutId={`card-${card.id}`}
-      className="card"
-      style={cardStyle}
-      data-card-id={card.id}
-      initial={false}
-      animate={{
-        x: offsetX,
-        y: offsetY,
-        rotate: rotation,
-        opacity: isSelected ? 0 : 1
-      }}
-      transition={{
-        layout: { duration: 0.8, ease: "easeInOut" },
-        opacity: { duration: 0.2 }
-      }}
-    >
-      <div className="card-inner">
-        <div className="card-front"></div>
-        <div className="card-back"></div>
-      </div>
-    </motion.div>
-  );
-}
+    return (
+      <motion.div
+        ref={ref}
+        layoutId={`card-${card.id}`}
+        className="card"
+        style={cardStyle}
+        data-card-id={card.id}
+        initial={false}
+        animate={{
+          x: offsetX,
+          y: offsetY,
+          rotate: rotation,
+          opacity: isSelected ? 0 : 1
+        }}
+        transition={{
+          layout: { duration: 0.8, ease: "easeInOut" },
+          opacity: { duration: 0.2 }
+        }}
+      >
+        <div className="card-inner">
+          <div className="card-front"></div>
+          <div className="card-back"></div>
+        </div>
+      </motion.div>
+    );
+  }
+);
+
+Card.displayName = "Card";
+
+export default Card;
