@@ -25,14 +25,9 @@
   box-shadow:
     0 4px 20px var(--color-shadow-soft),
     0 1px 3px var(--color-shadow);
-}
-
-.card-front {
-  background: var(--color-surface-warm);
-  overflow: hidden;
+  background: var(--color-surface);
 }
 
 .card-back {
-  background: var(--color-surface);
   transform: rotateY(180deg);
 }
