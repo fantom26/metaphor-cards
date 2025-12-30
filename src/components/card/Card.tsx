@@ -26,7 +26,6 @@ export default function Card({
     <div className="card" style={cardStyle} data-card-id={card.id}>
       <div className="card-inner">
         <div className="card-front"></div>
-        <div className="card-back"></div>
       </div>
     </div>
   );

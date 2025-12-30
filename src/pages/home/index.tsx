@@ -37,7 +37,6 @@ export default function Home() {
     const randomIndex = Math.floor(Math.random() * availableCards.length);
     const randomCard = availableCards[randomIndex];
 
-    // Simulate animation delay before showing the flipped card
     setTimeout(() => {
       setSelectedCard(randomCard);
       setAvailableCards((prev) => prev.filter((c) => c.id !== randomCard.id));
@@ -58,7 +57,6 @@ export default function Home() {
         return;
       }
 
-      // Simulate animation delay before showing the flipped card
       setTimeout(() => {
         setSelectedCard(card);
         setAvailableCards((prev) => prev.filter((c) => c.id !== cardNumber));

@@ -23,7 +23,6 @@ export default function FlippedCard({ card }: FlippedCardProps) {
   return (
     <div className="flipped-card-container show">
       <div className="flipped-card-inner" style={cardStyle}>
-        <div className="card-front"></div>
         <div className="card-back">
           <span className="card-number">{card.id}</span>
         </div>
