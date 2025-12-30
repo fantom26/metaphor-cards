@@ -5,6 +5,7 @@ import Container from "@/components/container/Container";
 import Controls from "@/components/controls/Controls";
 import FlippedCard from "@/components/flipped-card/FlippedCard";
 import Header from "@/components/header/Header";
+import OpenedCardsButton from "@/components/opened-cards-button/OpenedCardsButton";
 import { Card } from "@/types/card";
 
 import "./Home.css";
@@ -65,6 +66,12 @@ export default function Home() {
     [availableCards]
   );
 
+  const handleOpenedCardsClick = useCallback(() => {
+    console.log("Opened cards button clicked");
+  }, []);
+
+  const openedCardsCount = INITIAL_CARDS.length - availableCards.length;
+
   return (
     <div className="wrapper">
       <Header totalCards={INITIAL_CARDS.length} />
@@ -79,6 +86,12 @@ export default function Home() {
               <FlippedCard key={selectedCard.id} card={selectedCard} />
             )}
           </div>
+          {selectedCard && (
+            <OpenedCardsButton
+              openedCardsCount={openedCardsCount}
+              onClick={handleOpenedCardsClick}
+            />
+          )}
         </Container>
       </main>
       <footer className="footer">
