@@ -6,14 +6,12 @@ interface CardProps {
   card: { id: number; name: string };
   index: number;
   totalCards: number;
-  isSelected?: boolean;
 }
 
 export default function Card({
   card,
   index,
   totalCards,
-  isSelected = false
 }: CardProps) {
   const offsetX = index * 2;
   const offsetY = index * 1.5;
@@ -22,8 +20,6 @@ export default function Card({
   const cardStyle: CSSProperties = {
     zIndex: totalCards - index,
     transform: `translateX(${offsetX}px) translateY(${offsetY}px) rotate(${rotation}deg)`,
-    opacity: isSelected ? 0 : 1,
-    visibility: isSelected ? "hidden" : "visible"
   };
 
   return (

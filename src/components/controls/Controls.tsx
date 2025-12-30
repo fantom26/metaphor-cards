@@ -1,4 +1,4 @@
-import { KeyboardEvent, useState } from "react";
+import { useState } from "react";
 
 import "./Controls.css";
 
@@ -16,17 +16,8 @@ export default function Controls({
   const [cardNumber, setCardNumber] = useState("");
 
   const handleSelect = () => {
-    const num = parseInt(cardNumber);
-    if (num >= 1 && num <= 10) {
-      onSelectCard(num);
-      setCardNumber("");
-    }
-  };
-
-  const handleKeyPress = (e: KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Enter") {
-      handleSelect();
-    }
+    onSelectCard(parseInt(cardNumber));
+    setCardNumber("");
   };
 
   return (
@@ -51,11 +42,11 @@ export default function Controls({
           placeholder="Number"
           value={cardNumber}
           onChange={(e) => setCardNumber(e.target.value)}
-          onKeyPress={handleKeyPress}
         />
         <button
           className="secondary-button"
           onClick={handleSelect}
+          disabled={isDisabled}
           type="button"
         >
           Reveal

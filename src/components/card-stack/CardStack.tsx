@@ -5,10 +5,9 @@ import "./CardStack.css";
 
 interface CardStackProps {
   cards: Card[];
-  selectedCardId: number | null;
 }
 
-export default function CardStack({ cards, selectedCardId }: CardStackProps) {
+export default function CardStack({ cards }: CardStackProps) {
   return (
     <div className="card-set">
       {cards.map((card, index) => (
@@ -17,7 +16,6 @@ export default function CardStack({ cards, selectedCardId }: CardStackProps) {
           card={card}
           index={index}
           totalCards={cards.length}
-          isSelected={selectedCardId === card.id}
         />
       ))}
     </div>
