@@ -29,6 +29,7 @@ export default function Home() {
     ...INITIAL_CARDS
   ]);
   const [selectedCard, setSelectedCard] = useState<Card | null>(null);
+  const [openedCards, setOpenedCards] = useState<Card[]>([]);
 
   const handleDrawRandom = useCallback(() => {
     if (availableCards.length === 0) {
@@ -42,6 +43,7 @@ export default function Home() {
     setTimeout(() => {
       setSelectedCard(randomCard);
       setAvailableCards((prev) => prev.filter((c) => c.id !== randomCard.id));
+      setOpenedCards((prev) => [...prev, randomCard]);
     }, CARD_ANIMATION_DURATION_MS);
   }, [availableCards]);
 
@@ -62,16 +64,15 @@ export default function Home() {
       setTimeout(() => {
         setSelectedCard(card);
         setAvailableCards((prev) => prev.filter((c) => c.id !== cardNumber));
+        setOpenedCards((prev) => [...prev, card]);
       }, CARD_ANIMATION_DURATION_MS);
     },
     [availableCards]
   );
 
   const handleOpenedCardsClick = useCallback(() => {
-    console.log("Opened cards button clicked");
-  }, []);
-
-  const openedCardsCount = INITIAL_CARDS.length - availableCards.length;
+    console.log("Opened cards:", openedCards);
+  }, [openedCards]);
 
   return (
     <div className="wrapper">
@@ -87,9 +88,9 @@ export default function Home() {
               <FlippedCard key={selectedCard.id} card={selectedCard} />
             )}
           </div>
-          {selectedCard && (
+          {openedCards.length > 0 && (
             <OpenedCardsButton
-              openedCardsCount={openedCardsCount}
+              openedCards={openedCards}
               onClick={handleOpenedCardsClick}
             />
           )}

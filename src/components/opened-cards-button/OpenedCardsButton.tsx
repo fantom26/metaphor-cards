@@ -1,22 +1,20 @@
+import { Card } from "@/types/card";
+
 import "./OpenedCardsButton.css";
 
 interface OpenedCardsButtonProps {
-  openedCardsCount: number;
+  openedCards: Card[];
   onClick: () => void;
 }
 
 export default function OpenedCardsButton({
-  openedCardsCount,
+  openedCards,
   onClick
 }: OpenedCardsButtonProps) {
-  if (openedCardsCount === 0) {
-    return null;
-  }
-
   return (
     <button className="opened-cards-button" onClick={onClick} type="button">
       <div className="opened-cards-stack">
-        {Array.from({ length: Math.min(openedCardsCount, 10) }).map(
+        {Array.from({ length: Math.min(openedCards.length, 10) }).map(
           (_, index) => {
             const offsetX = index * 0.8;
             const offsetY = index * 0.6;
