@@ -45,7 +45,7 @@ export default function FlippedCard({ card }: FlippedCardProps) {
         >
           <div className="card-front"></div>
           <div className="card-back">
-            <span className="card-number">{card.id}</span>
+            <img src={card.image} alt={card.name} className="card-image" />
           </div>
         </motion.div>
       </motion.div>
