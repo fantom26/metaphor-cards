@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useState } from "react";
 
 import CardStack from "@/components/card-stack/CardStack";
 import Container from "@/components/container/Container";
@@ -31,7 +31,7 @@ export default function Home() {
   const [selectedCard, setSelectedCard] = useState<Card | null>(null);
   const [openedCards, setOpenedCards] = useState<Card[]>([]);
 
-  const handleDrawRandom = useCallback(() => {
+  const handleDrawRandom = () => {
     if (availableCards.length === 0) {
       alert("No more cards available!");
       return;
@@ -45,34 +45,31 @@ export default function Home() {
       setAvailableCards((prev) => prev.filter((c) => c.id !== randomCard.id));
       setOpenedCards((prev) => [...prev, randomCard]);
     }, CARD_ANIMATION_DURATION_MS);
-  }, [availableCards]);
+  };
 
-  const handleSelectCard = useCallback(
-    (cardNumber: number) => {
-      const card = availableCards.find((c) => c.id === cardNumber);
+  const handleSelectCard = (cardNumber: number) => {
+    const card = availableCards.find((c) => c.id === cardNumber);
 
-      if (!card) {
-        alert(`Card ${cardNumber} is no longer available!`);
-        return;
-      }
+    if (!card) {
+      alert(`Card ${cardNumber} is no longer available!`);
+      return;
+    }
 
-      if (cardNumber < 1 || cardNumber > 10) {
-        alert("Please enter a valid card number between 1 and 10!");
-        return;
-      }
+    if (cardNumber < 1 || cardNumber > 10) {
+      alert("Please enter a valid card number between 1 and 10!");
+      return;
+    }
 
-      setTimeout(() => {
-        setSelectedCard(card);
-        setAvailableCards((prev) => prev.filter((c) => c.id !== cardNumber));
-        setOpenedCards((prev) => [...prev, card]);
-      }, CARD_ANIMATION_DURATION_MS);
-    },
-    [availableCards]
-  );
+    setTimeout(() => {
+      setSelectedCard(card);
+      setAvailableCards((prev) => prev.filter((c) => c.id !== cardNumber));
+      setOpenedCards((prev) => [...prev, card]);
+    }, CARD_ANIMATION_DURATION_MS);
+  };
 
-  const handleOpenedCardsClick = useCallback(() => {
+  const handleOpenedCardsClick = () => {
     console.log("Opened cards:", openedCards);
-  }, [openedCards]);
+  };
 
   return (
     <div className="wrapper">
