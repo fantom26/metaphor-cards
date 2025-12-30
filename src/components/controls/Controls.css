@@ -1,0 +1,95 @@
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.control-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.divider {
+  width: 1px;
+  height: 32px;
+  background: var(--color-border);
+}
+
+.primary-button,
+.secondary-button {
+  font-size: 15px;
+  font-weight: 400;
+  font-family: inherit;
+  background: transparent;
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-button);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  letter-spacing: 0.01em;
+}
+
+.primary-button:hover,
+.secondary-button:hover {
+  border-color: var(--color-accent);
+  background: rgba(139, 115, 85, 0.05);
+}
+
+.primary-button:active,
+.secondary-button:active {
+  transform: scale(0.98);
+}
+
+.primary-button {
+  padding: 14px 32px;
+  color: var(--color-text);
+  min-width: 140px;
+}
+
+.primary-button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.secondary-button {
+  padding: 14px 24px;
+  color: var(--color-text-muted);
+}
+
+.secondary-button:hover {
+  color: var(--color-text);
+}
+
+.card-input {
+  padding: 14px 16px;
+  font-size: 15px;
+  font-weight: 400;
+  font-family: inherit;
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-button);
+  background: var(--color-bg);
+  color: var(--color-text);
+  text-align: center;
+  width: 100px;
+  outline: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.card-input::placeholder {
+  color: var(--color-text-muted);
+}
+
+.card-input:focus {
+  border-color: var(--color-accent);
+  background: var(--color-bg-elevated);
+}
+
+.card-input::-webkit-inner-spin-button,
+.card-input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+

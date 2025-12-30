@@ -1,0 +1,37 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  width: 100%;
+  min-width: 320px;
+  min-height: 100%;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0 15px;
+  width: 100%;
+  max-width: 120rem;
+}
+
+.main {
+  flex-grow: 1;
+  display: flex;
+}
+
+.main .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cards-wrapper {
+  display: flex;
+  gap: 480px;
+  justify-content: center;
+}
+
+.footer {
+  padding-block: 16px;
+}
+

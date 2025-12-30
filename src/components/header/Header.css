@@ -1,0 +1,25 @@
+.header {
+  text-align: center;
+  padding-block: 16px;
+}
+
+.total {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.total-cards-label {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--color-text-muted);
+  letter-spacing: 0.02em;
+}
+
+.total-cards {
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--color-text-muted);
+  letter-spacing: 0.05em;
+}
+

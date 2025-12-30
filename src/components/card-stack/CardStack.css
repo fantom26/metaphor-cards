@@ -1,0 +1,10 @@
+.card-set {
+  position: relative;
+  width: var(--card-width);
+  height: var(--card-height);
+  perspective: 1500px;
+  transform-style: preserve-3d;
+  flex-shrink: 0;
+  align-self: flex-start;
+}
+

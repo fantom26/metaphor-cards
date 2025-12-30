@@ -1,0 +1,46 @@
+@import '../card/Card.css';
+
+.flipped-card-container {
+  position: relative;
+  width: var(--card-width);
+  height: var(--card-height);
+  perspective: 1500px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s ease-in-out;
+  flex-shrink: 0;
+  align-self: flex-start;
+}
+
+.flipped-card-container.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.flipped-card-container.show .rotate-button {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.flipped-card-inner {
+  position: relative;
+  width: var(--card-width);
+  height: var(--card-height);
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.flipped-card-inner .card-front,
+.flipped-card-inner .card-back {
+  box-shadow: 0 8px 32px var(--color-shadow), 0 2px 8px var(--color-shadow-soft);
+}
+
+.card-number {
+  font-size: 64px;
+  font-weight: 300;
+  color: var(--color-accent);
+  letter-spacing: -0.02em;
+  position: relative;
+  z-index: 1;
+}
+
