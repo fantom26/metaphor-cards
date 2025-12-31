@@ -1,11 +1,11 @@
 import { useState } from "react";
 
-import RotateButton from "@/components/rotate-button/RotateButton";
+import RotateButton from "@/components/rotate-button";
 import { CARD_ANIMATION_DURATION_S } from "@/constants/animations";
 import { Card } from "@/types/card";
 import { motion } from "framer-motion";
 
-import "./FlippedCard.scss";
+import "./flipped-card.scss";
 
 interface FlippedCardProps {
   card: Card;

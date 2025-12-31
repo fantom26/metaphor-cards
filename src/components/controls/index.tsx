@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import { MAX_CARDS } from "@/pages/home";
 
-import "./Controls.scss";
+import "./controls.scss";
 
 interface ControlsProps {
   onDrawRandom: () => void;

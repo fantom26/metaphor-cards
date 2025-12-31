@@ -3,7 +3,7 @@ import { getCardStackPosition } from "@/utils/cardStackPosition";
 
 import { MAX_CARDS } from "@/pages/home";
 
-import "./OpenedCardsButton.scss";
+import "./opened-cards-button.scss";
 
 interface OpenedCardsButtonProps {
   openedCards: Card[];

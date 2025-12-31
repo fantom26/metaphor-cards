@@ -1,11 +1,11 @@
 import { useState } from "react";
 
-import CardStack from "@/components/card-stack/CardStack";
-import Container from "@/components/container/Container";
-import Controls from "@/components/controls/Controls";
-import FlippedCard from "@/components/flipped-card/FlippedCard";
-import Header from "@/components/header/Header";
-import OpenedCardsButton from "@/components/opened-cards-button/OpenedCardsButton";
+import CardStack from "@/components/card-stack";
+import Container from "@/components/container";
+import Controls from "@/components/controls";
+import FlippedCard from "@/components/flipped-card";
+import Header from "@/components/header";
+import OpenedCardsButton from "@/components/opened-cards-button";
 import { CARD_ANIMATION_DURATION_MS } from "@/constants/animations";
 import { Card } from "@/types/card";
 
