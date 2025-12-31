@@ -9,7 +9,7 @@ import OpenedCardsButton from "@/components/opened-cards-button/OpenedCardsButto
 import { CARD_ANIMATION_DURATION_MS } from "@/constants/animations";
 import { Card } from "@/types/card";
 
-import "./Home.css";
+import "./Home.scss";
 
 const INITIAL_CARDS: Card[] = [
   { id: 1, name: "Card 1", image: "/collection/card-1.jpg" },

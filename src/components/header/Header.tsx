@@ -1,6 +1,6 @@
 import Container from "@/components/container/Container";
 
-import "./Header.css";
+import "./Header.scss";
 
 interface HeaderProps {
   totalCards: number;

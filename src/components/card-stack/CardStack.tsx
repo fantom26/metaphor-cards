@@ -2,7 +2,7 @@ import CardComponent from "@/components/card/Card";
 import { Card } from "@/types/card";
 import { AnimatePresence } from "framer-motion";
 
-import "./CardStack.css";
+import "./CardStack.scss";
 
 interface CardStackProps {
   cards: Card[];

@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import "./Controls.css";
+import "./Controls.scss";
 
 interface ControlsProps {
   onDrawRandom: () => void;

@@ -1,4 +1,4 @@
-import "./RotateButton.css";
+import "./RotateButton.scss";
 
 interface RotateButtonProps {
   onRotate: () => void;

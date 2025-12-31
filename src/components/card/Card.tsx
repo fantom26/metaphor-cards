@@ -4,7 +4,7 @@ import { CARD_ANIMATION_DURATION_S } from "@/constants/animations";
 import { getCardStackPosition } from "@/utils/cardStackPosition";
 import { motion } from "framer-motion";
 
-import "./Card.css";
+import "./Card.scss";
 
 interface CardProps {
   card: { id: number; name: string };

@@ -1,7 +1,7 @@
 import { Card } from "@/types/card";
 import { getCardStackPosition } from "@/utils/cardStackPosition";
 
-import "./OpenedCardsButton.css";
+import "./OpenedCardsButton.scss";
 
 interface OpenedCardsButtonProps {
   openedCards: Card[];

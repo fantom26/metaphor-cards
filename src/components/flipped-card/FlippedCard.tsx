@@ -5,7 +5,7 @@ import { CARD_ANIMATION_DURATION_S } from "@/constants/animations";
 import { Card } from "@/types/card";
 import { motion } from "framer-motion";
 
-import "./FlippedCard.css";
+import "./FlippedCard.scss";
 
 interface FlippedCardProps {
   card: Card;
