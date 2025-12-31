@@ -28,5 +28,14 @@ export default defineConfig({
     alias: {
       "@": resolve(__dirname, "./src")
     }
+  },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `
+        @use "@/styles/connections.scss" as *;
+        `
+      }
+    }
   }
 });
