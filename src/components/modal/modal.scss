@@ -1,0 +1,51 @@
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: z("modal");
+  overflow: hidden auto;
+
+  ::backdrop {
+    background-color: var(--backdrop);
+  }
+
+  &__container {
+    @include flex-all-center;
+
+    min-height: 100%;
+    padding: 4rem 1.5rem;
+  }
+
+  &__header {
+    @include flex-all-sb;
+    gap: 1rem;
+    padding: 2rem;
+  }
+
+  &__content,
+  &__actions {
+    padding: 2rem;
+  }
+
+  &__root {
+    position: relative;
+    width: 100%;
+    max-width: var(--width);
+    border-radius: var(--radius);
+    background-color: var(--white-100);
+  }
+
+  &__actions {
+    @include flex-all-center;
+    gap: 1.5rem;
+  }
+}
+
+@keyframes show-modal {
+  0% {
+    @include fade("hide");
+  }
+
+  100% {
+    @include fade("show");
+  }
+}
