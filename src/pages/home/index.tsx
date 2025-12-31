@@ -5,7 +5,6 @@ import Container from "@/components/container";
 import Controls from "@/components/controls";
 import FlippedCard from "@/components/flipped-card";
 import Header from "@/components/header";
-import { ModalContent, ModalHeader, ModalRoot } from "@/components/modal";
 import OpenedCardsButton from "@/components/opened-cards-button";
 import { CARD_ANIMATION_DURATION_MS } from "@/constants/animations";
 import { Card } from "@/types/card";
@@ -33,7 +32,6 @@ export default function Home() {
   ]);
   const [selectedCard, setSelectedCard] = useState<Card | null>(null);
   const [openedCards, setOpenedCards] = useState<Card[]>([]);
-  const [isOpenedCardsModalOpen, setIsOpenedCardsModalOpen] = useState(false);
 
   const handleDrawRandom = () => {
     if (availableCards.length === 0) {
@@ -72,11 +70,7 @@ export default function Home() {
   };
 
   const handleOpenedCardsClick = () => {
-    setIsOpenedCardsModalOpen(true);
-  };
-
-  const handleCloseOpenedCardsModal = () => {
-    setIsOpenedCardsModalOpen(false);
+    console.log("Opened cards:", openedCards);
   };
 
   return (
@@ -110,28 +104,6 @@ export default function Home() {
           />
         </Container>
       </footer>
-      <ModalRoot
-        open={isOpenedCardsModalOpen}
-        onClose={handleCloseOpenedCardsModal}
-        width={90}
-      >
-        <ModalHeader onClose={handleCloseOpenedCardsModal}>
-          Opened Cards
-        </ModalHeader>
-        <ModalContent>
-          <div className="opened-cards-modal">
-            {openedCards.map((card) => (
-              <div key={card.id} className="opened-cards-modal__card">
-                <img
-                  src={card.image}
-                  alt={card.name}
-                  className="opened-cards-modal__card-image"
-                />
-              </div>
-            ))}
-          </div>
-        </ModalContent>
-      </ModalRoot>
     </div>
   );
 }
