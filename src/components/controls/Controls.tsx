@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import { MAX_CARDS } from "@/pages/home";
+
 import "./Controls.scss";
 
 interface ControlsProps {
@@ -38,7 +40,7 @@ export default function Controls({
           type="number"
           className="card-input"
           min="1"
-          max="10"
+          max={MAX_CARDS}
           placeholder="Number"
           value={cardNumber}
           onChange={(e) => setCardNumber(e.target.value)}

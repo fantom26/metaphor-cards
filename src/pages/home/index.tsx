@@ -24,6 +24,8 @@ const INITIAL_CARDS: Card[] = [
   { id: 10, name: "Card 10", image: "/collection/card-1.jpg" }
 ];
 
+export const MAX_CARDS = INITIAL_CARDS.length;
+
 export default function Home() {
   const [availableCards, setAvailableCards] = useState<Card[]>([
     ...INITIAL_CARDS
@@ -55,8 +57,8 @@ export default function Home() {
       return;
     }
 
-    if (cardNumber < 1 || cardNumber > INITIAL_CARDS.length) {
-      alert("Please enter a valid card number between 1 and 10!");
+    if (cardNumber < 1 || cardNumber > MAX_CARDS) {
+      alert(`Please enter a valid card number between 1 and ${MAX_CARDS}!`);
       return;
     }
 
@@ -73,7 +75,7 @@ export default function Home() {
 
   return (
     <div className="wrapper">
-      <Header totalCards={INITIAL_CARDS.length} />
+      <Header totalCards={MAX_CARDS} />
       <main className="main">
         <Container className="main-container">
           <div className="cards-wrapper">

@@ -1,6 +1,8 @@
 import { Card } from "@/types/card";
 import { getCardStackPosition } from "@/utils/cardStackPosition";
 
+import { MAX_CARDS } from "@/pages/home";
+
 import "./OpenedCardsButton.scss";
 
 interface OpenedCardsButtonProps {
@@ -15,7 +17,7 @@ export default function OpenedCardsButton({
   return (
     <button className="opened-cards-button" onClick={onClick} type="button">
       <div className="opened-cards-stack">
-        {Array.from({ length: Math.min(openedCards.length, 10) }).map(
+        {Array.from({ length: Math.min(openedCards.length, MAX_CARDS) }).map(
           (_, index) => {
             const { offsetX, offsetY, rotation } = getCardStackPosition(-index);
 
