@@ -52,12 +52,8 @@ export const ModalRoot: FC<ModalProps> = ({
 
   return (
     <Portal>
-      <dialog className="modal" open={open} onClose={onClose}>
-        <div style={styles} role="dialog" aria-modal="true">
-          <div className="modal__container">
-            <div className="modal__root">{children}</div>
-          </div>
-        </div>
+      <dialog className="modal" open={open} style={styles} onClose={onClose}>
+        {children}
       </dialog>
     </Portal>
   );

@@ -3,16 +3,13 @@
   inset: 0;
   z-index: z("modal");
   overflow: hidden auto;
+  width: 100%;
+  max-width: var(--width);
+  border-radius: var(--radius);
+  background-color: var(--white-100);
 
   ::backdrop {
     background-color: var(--backdrop);
-  }
-
-  &__container {
-    @include flex-all-center;
-
-    min-height: 100%;
-    padding: 4rem 1.5rem;
   }
 
   &__header {
@@ -24,14 +21,6 @@
   &__content,
   &__actions {
     padding: 2rem;
-  }
-
-  &__root {
-    position: relative;
-    width: 100%;
-    max-width: var(--width);
-    border-radius: var(--radius);
-    background-color: var(--white-100);
   }
 
   &__actions {
