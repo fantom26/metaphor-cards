@@ -1,11 +1,14 @@
-import { ReactNode } from "react";
-
 import "./card-back.scss";
 
 interface CardBackProps {
-  children?: ReactNode;
+  src?: string;
+  alt?: string;
 }
 
-export default function CardBack({ children }: CardBackProps) {
-  return <div className="card-back">{children}</div>;
+export default function CardBack({ src, alt }: CardBackProps) {
+  return (
+    <div className="card-back">
+      {src && <img src={src} alt={alt} className="card-image" />}
+    </div>
+  );
 }

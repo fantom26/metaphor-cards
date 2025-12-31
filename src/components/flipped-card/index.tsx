@@ -50,9 +50,7 @@ export default function FlippedCard({ card }: FlippedCardProps) {
           style={{ transformStyle: "preserve-3d" }}
         >
           <CardFront />
-          <CardBack>
-            <img src={card.image} alt={card.name} className="card-image" />
-          </CardBack>
+          <CardBack src={card.image} alt={card.name} />
         </motion.div>
       </motion.div>
       <RotateButton onRotate={handleRotate} />
