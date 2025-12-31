@@ -1,10 +1,17 @@
 @import "../card/card.scss";
 
-.flipped-card-container {
+.flipped-card {
   position: relative;
   width: var(--card-width);
   height: var(--card-height);
   perspective: 1500px;
+}
+
+.card-inner {
+  position: relative;
+  width: var(--card-width);
+  height: var(--card-height);
+  transform-style: preserve-3d;
 }
 
 .card-image {

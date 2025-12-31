@@ -41,15 +41,11 @@ const Card = forwardRef<HTMLDivElement, CardProps>(
           opacity: { duration: 0.2 }
         }}
       >
-        <div className="card-inner">
-          <CardFront />
-          <CardBack />
-        </div>
+        <CardFront />
+        <CardBack />
       </motion.div>
     );
   }
 );
-
-Card.displayName = "Card";
 
 export default Card;
