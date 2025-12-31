@@ -1,3 +1,4 @@
+import CardFront from "@/components/card-front";
 import { Card } from "@/types/card";
 import { getCardStackPosition } from "@/utils/cardStackPosition";
 
@@ -36,7 +37,7 @@ export default function OpenedCardsButton({
                 }
               >
                 <div className="opened-card-mini-inner">
-                  <div className="card-front"></div>
+                  <CardFront />
                 </div>
               </div>
             );

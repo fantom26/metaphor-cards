@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import CardBack from "@/components/card-back";
+import CardFront from "@/components/card-front";
 import RotateButton from "@/components/rotate-button";
 import { CARD_ANIMATION_DURATION_S } from "@/constants/animations";
 import { Card } from "@/types/card";
@@ -47,10 +49,10 @@ export default function FlippedCard({ card }: FlippedCardProps) {
           }}
           style={{ transformStyle: "preserve-3d" }}
         >
-          <div className="card-front"></div>
-          <div className="card-back">
+          <CardFront />
+          <CardBack>
             <img src={card.image} alt={card.name} className="card-image" />
-          </div>
+          </CardBack>
         </motion.div>
       </motion.div>
       <RotateButton onRotate={handleRotate} />

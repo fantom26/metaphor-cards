@@ -1,5 +1,7 @@
 import { CSSProperties, forwardRef } from "react";
 
+import CardBack from "@/components/card-back";
+import CardFront from "@/components/card-front";
 import { CARD_ANIMATION_DURATION_S } from "@/constants/animations";
 import { getCardStackPosition } from "@/utils/cardStackPosition";
 import { motion } from "framer-motion";
@@ -40,8 +42,8 @@ const Card = forwardRef<HTMLDivElement, CardProps>(
         }}
       >
         <div className="card-inner">
-          <div className="card-front"></div>
-          <div className="card-back"></div>
+          <CardFront />
+          <CardBack />
         </div>
       </motion.div>
     );
